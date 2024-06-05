@@ -5,16 +5,15 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/domain/model"
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/usecase"
+	"github.com/chmikata/webhook-poc/trivy-webhook-proxy/internal/service"
 )
 
 type ReportHandler struct {
-	reportCreate *usecase.ReportCreate
+	service *service.Report
 }
 
-func NewReportHandler(reportCreate *usecase.ReportCreate) *ReportHandler {
-	return &ReportHandler{reportCreate: reportCreate}
+func NewReportHandler(service *service.Report) *ReportHandler {
+	return &ReportHandler{service: service}
 }
 
 func (r *ReportHandler) HandleReport(writer http.ResponseWriter, request *http.Request) {
@@ -22,10 +21,10 @@ func (r *ReportHandler) HandleReport(writer http.ResponseWriter, request *http.R
 	if err != nil {
 		return
 	}
-	var model model.VulnerabilityReport
+	var model service.VulnerabilityReport
 	json.Unmarshal(bytes, &model)
 
-	err = r.reportCreate.Execute(model)
+	err = r.service.SendReport(model)
 	if err != nil {
 		http.Error(writer, err.Error(), http.StatusInternalServerError)
 		return

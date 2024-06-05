@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -10,10 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/domain"
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/infrastructure"
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/interfaces"
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/usecase"
+	"github.com/chmikata/webhook-poc/trivy-webhook-proxy/internal/infrastructure"
+	"github.com/chmikata/webhook-poc/trivy-webhook-proxy/internal/interfaces"
+	"github.com/chmikata/webhook-poc/trivy-webhook-proxy/internal/service"
 	"github.com/spf13/cobra"
 )
 
@@ -29,15 +27,13 @@ and register it as an Issue on GitHub.`,
 		// repo, _ := rootCmd.PersistentFlags().GetString("repo")
 		// token, _ := rootCmd.PersistentFlags().GetString("token")
 		template, _ := cmd.PersistentFlags().GetString("template")
-		fmt.Println(template)
-		reportDomain, err := domain.NewReport(template, infrastructure.NewStdout())
+		service, err := service.NewReport(template, infrastructure.NewStdoutRender())
 		if err != nil {
 			return err
 		}
-		reportUseCase := usecase.NewReportCreate(reportDomain)
-		reportHandler := interfaces.NewReportHandler(reportUseCase)
+		handler := interfaces.NewReportHandler(service)
 		mux := http.NewServeMux()
-		mux.HandleFunc("POST /report", reportHandler.HandleReport)
+		mux.HandleFunc("POST /report", handler.HandleReport)
 		server := &http.Server{
 			Addr:    ":8080",
 			Handler: mux,

@@ -1,4 +1,4 @@
-module github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy
+module github.com/chmikata/webhook-poc/trivy-webhook-proxy
 
 go 1.22.4
 

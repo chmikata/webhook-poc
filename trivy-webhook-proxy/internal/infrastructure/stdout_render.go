@@ -1,21 +1,22 @@
 package infrastructure
 
 import (
-	"fmt"
+	"log"
 
-	"github.com/rakus-dev/sre-custom-tool/trivy-webhook-proxy/internal/domain/repository"
+	"github.com/chmikata/webhook-poc/trivy-webhook-proxy/internal/service"
 )
 
-var _ repository.ReportRepository = (*StdoutRender)(nil)
+var _ service.ReportRender = (*StdoutRender)(nil)
 
 type StdoutRender struct {
 }
 
-func NewStdout() *StdoutRender {
+func NewStdoutRender() *StdoutRender {
 	return &StdoutRender{}
 }
 
-func (s *StdoutRender) Render(report string) error {
-	fmt.Println(report)
+func (s *StdoutRender) Render(title, body string) error {
+	log.Println(title)
+	log.Println(body)
 	return nil
 }
