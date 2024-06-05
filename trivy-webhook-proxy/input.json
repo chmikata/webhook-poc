@@ -1,0 +1,431 @@
+{
+  "kind": "VulnerabilityReport",
+  "apiVersion": "aquasecurity.github.io/v1alpha1",
+  "metadata": {
+    "name": "replicaset-5945d774dd",
+    "namespace": "ehozon-frontend",
+    "uid": "c88390b4-baa5-473c-81a0-b71fff2760b2",
+    "resourceVersion": "48343898",
+    "generation": 1,
+    "creationTimestamp": "2024-06-04T06:19:46Z",
+    "labels": {
+      "resource-spec-hash": "858776cb49",
+      "trivy-operator.container.name": "ehozon-frontend",
+      "trivy-operator.resource.kind": "ReplicaSet",
+      "trivy-operator.resource.name": "ehozon-frontend-deployment-69b7c6dbd4",
+      "trivy-operator.resource.namespace": "ehozon-frontend"
+    },
+    "annotations": {
+      "trivy-operator.aquasecurity.github.io/report-ttl": "0h0m0s"
+    },
+    "ownerReferences": [
+      {
+        "apiVersion": "apps/v1",
+        "kind": "ReplicaSet",
+        "name": "ehozon-frontend-deployment-69b7c6dbd4",
+        "uid": "39472bca-f112-48ba-a87e-dec804682ebd",
+        "controller": true,
+        "blockOwnerDeletion": false
+      }
+    ],
+    "managedFields": [
+      {
+        "manager": "trivy-operator",
+        "operation": "Update",
+        "apiVersion": "aquasecurity.github.io/v1alpha1",
+        "time": "2024-06-04T06:19:46Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:metadata": {
+            "f:annotations": {},
+            "f:labels": {
+              ".": {},
+              "f:resource-spec-hash": {},
+              "f:trivy-operator.container.name": {},
+              "f:trivy-operator.resource.kind": {},
+              "f:trivy-operator.resource.name": {},
+              "f:trivy-operator.resource.namespace": {}
+            },
+            "f:ownerReferences": {
+              ".": {},
+              "k:{\"uid\":\"39472bca-f112-48ba-a87e-dec804682ebd\"}": {}
+            }
+          },
+          "f:report": {
+            ".": {},
+            "f:artifact": {
+              ".": {},
+              "f:digest": {},
+              "f:repository": {},
+              "f:tag": {}
+            },
+            "f:os": {
+              ".": {},
+              "f:family": {},
+              "f:name": {}
+            },
+            "f:registry": {
+              ".": {},
+              "f:server": {}
+            },
+            "f:scanner": {
+              ".": {},
+              "f:name": {},
+              "f:vendor": {},
+              "f:version": {}
+            },
+            "f:summary": {
+              ".": {},
+              "f:criticalCount": {},
+              "f:highCount": {},
+              "f:lowCount": {},
+              "f:mediumCount": {},
+              "f:noneCount": {},
+              "f:unknownCount": {}
+            },
+            "f:updateTimestamp": {},
+            "f:vulnerabilities": {}
+          }
+        }
+      },
+      {
+        "manager": "kubectl-edit",
+        "operation": "Update",
+        "apiVersion": "aquasecurity.github.io/v1alpha1",
+        "time": "2024-06-04T06:35:24Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:metadata": {
+            "f:annotations": {
+              "f:trivy-operator.aquasecurity.github.io/report-ttl": {}
+            }
+          }
+        }
+      }
+    ]
+  },
+  "report": {
+    "updateTimestamp": "2024-06-04T06:19:46Z",
+    "scanner": {
+      "name": "Trivy",
+      "vendor": "Aqua Security",
+      "version": "0.51.2"
+    },
+    "registry": {
+      "server": "ghcr.io"
+    },
+    "artifact": {
+      "repository": "rakus-dev/ehozon/ehozon-frontend",
+      "digest": "sha256:a04b00ab844ddabcbf233f4903b827589879d54f39be2dde15e86e3a728f2c35",
+      "tag": "sha-eb4251327b95b8d96a486e0d2ecb91fadbecd338"
+    },
+    "os": {
+      "family": "debian",
+      "name": "12.4"
+    },
+    "summary": {
+      "criticalCount": 0,
+      "highCount": 21,
+      "mediumCount": 0,
+      "lowCount": 0,
+      "unknownCount": 0,
+      "noneCount": 0
+    },
+    "vulnerabilities": [
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "bsdutils",
+        "installedVersion": "1:2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "libblkid1",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-6246",
+        "resource": "libc-bin",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u4",
+        "publishedDate": "2024-01-31T14:15:48Z",
+        "lastModifiedDate": "2024-02-16T13:15:10Z",
+        "severity": "HIGH",
+        "title": "glibc: heap-based buffer overflow in __vsyslog_internal()",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-6246",
+        "links": [],
+        "score": 7.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-6779",
+        "resource": "libc-bin",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u4",
+        "publishedDate": "2024-01-31T14:15:48Z",
+        "lastModifiedDate": "2024-02-27T17:26:48Z",
+        "severity": "HIGH",
+        "title": "glibc: off-by-one heap-based buffer overflow in __vsyslog_internal()",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-6779",
+        "links": [],
+        "score": 7.5,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-2961",
+        "resource": "libc-bin",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u6",
+        "publishedDate": "2024-04-17T18:15:15Z",
+        "lastModifiedDate": "2024-05-04T01:15:06Z",
+        "severity": "HIGH",
+        "title": "glibc: Out of bounds write in iconv may lead to remote code execution",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-2961",
+        "links": [],
+        "score": 8.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-33599",
+        "resource": "libc-bin",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u7",
+        "publishedDate": "2024-05-06T20:15:11Z",
+        "lastModifiedDate": "2024-05-07T13:39:32Z",
+        "severity": "HIGH",
+        "title": "glibc: stack-based buffer overflow in netgroup cache",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-33599",
+        "links": [],
+        "score": 7.6,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-6246",
+        "resource": "libc6",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u4",
+        "publishedDate": "2024-01-31T14:15:48Z",
+        "lastModifiedDate": "2024-02-16T13:15:10Z",
+        "severity": "HIGH",
+        "title": "glibc: heap-based buffer overflow in __vsyslog_internal()",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-6246",
+        "links": [],
+        "score": 7.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-6779",
+        "resource": "libc6",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u4",
+        "publishedDate": "2024-01-31T14:15:48Z",
+        "lastModifiedDate": "2024-02-27T17:26:48Z",
+        "severity": "HIGH",
+        "title": "glibc: off-by-one heap-based buffer overflow in __vsyslog_internal()",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-6779",
+        "links": [],
+        "score": 7.5,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-2961",
+        "resource": "libc6",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u6",
+        "publishedDate": "2024-04-17T18:15:15Z",
+        "lastModifiedDate": "2024-05-04T01:15:06Z",
+        "severity": "HIGH",
+        "title": "glibc: Out of bounds write in iconv may lead to remote code execution",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-2961",
+        "links": [],
+        "score": 8.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-33599",
+        "resource": "libc6",
+        "installedVersion": "2.36-9+deb12u3",
+        "fixedVersion": "2.36-9+deb12u7",
+        "publishedDate": "2024-05-06T20:15:11Z",
+        "lastModifiedDate": "2024-05-07T13:39:32Z",
+        "severity": "HIGH",
+        "title": "glibc: stack-based buffer overflow in netgroup cache",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-33599",
+        "links": [],
+        "score": 7.6,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-49465",
+        "resource": "libde265-0",
+        "installedVersion": "1.0.11-1+deb12u1",
+        "fixedVersion": "1.0.11-1+deb12u2",
+        "publishedDate": "2023-12-07T20:15:38Z",
+        "lastModifiedDate": "2023-12-30T21:15:43Z",
+        "severity": "HIGH",
+        "title": "Libde265 v1.0.14 was discovered to contain a heap-buffer-overflow vuln ...",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-49465",
+        "links": [],
+        "score": 8.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-49467",
+        "resource": "libde265-0",
+        "installedVersion": "1.0.11-1+deb12u1",
+        "fixedVersion": "1.0.11-1+deb12u2",
+        "publishedDate": "2023-12-07T20:15:38Z",
+        "lastModifiedDate": "2023-12-30T21:15:43Z",
+        "severity": "HIGH",
+        "title": "Libde265 v1.0.14 was discovered to contain a heap-buffer-overflow vuln ...",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-49467",
+        "links": [],
+        "score": 8.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2023-49468",
+        "resource": "libde265-0",
+        "installedVersion": "1.0.11-1+deb12u1",
+        "fixedVersion": "1.0.11-1+deb12u2",
+        "publishedDate": "2023-12-07T20:15:38Z",
+        "lastModifiedDate": "2023-12-30T21:15:44Z",
+        "severity": "HIGH",
+        "title": "Libde265 v1.0.14 was discovered to contain a global buffer overflow vu ...",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2023-49468",
+        "links": [],
+        "score": 8.8,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-0553",
+        "resource": "libgnutls30",
+        "installedVersion": "3.7.9-2+deb12u1",
+        "fixedVersion": "3.7.9-2+deb12u2",
+        "publishedDate": "2024-01-16T12:15:45Z",
+        "lastModifiedDate": "2024-03-25T18:15:08Z",
+        "severity": "HIGH",
+        "title": "gnutls: incomplete fix for CVE-2023-5981",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-0553",
+        "links": [],
+        "score": 7.5,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-0567",
+        "resource": "libgnutls30",
+        "installedVersion": "3.7.9-2+deb12u1",
+        "fixedVersion": "3.7.9-2+deb12u2",
+        "publishedDate": "2024-01-16T14:15:48Z",
+        "lastModifiedDate": "2024-03-05T11:15:08Z",
+        "severity": "HIGH",
+        "title": "gnutls: rejects certificate chain with distributed trust",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-0567",
+        "links": [],
+        "score": 7.5,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "libmount1",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "libsmartcols1",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "libuuid1",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "mount",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "util-linux",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      },
+      {
+        "vulnerabilityID": "CVE-2024-28085",
+        "resource": "util-linux-extra",
+        "installedVersion": "2.38.1-5+b1",
+        "fixedVersion": "2.38.1-5+deb12u1",
+        "publishedDate": "2024-03-27T19:15:48Z",
+        "lastModifiedDate": "2024-05-01T18:15:16Z",
+        "severity": "HIGH",
+        "title": "util-linux: CVE-2024-28085: wall: escape sequence injection",
+        "primaryLink": "https://avd.aquasec.com/nvd/cve-2024-28085",
+        "links": [],
+        "score": 8.4,
+        "target": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{{ $d := dict "CRITICAL" "🔴" "HIGH" "🟠" "MEDIUM" "🟡" "UNKNOWN" "🟤" -}}
+
+## {{ .Metadata.Labels.ResourceName }}
+### Kind: {{ .Metadata.Labels.ResourceKind }}
+### NameSpace: {{ .Metadata.Labels.ResourceNameSpace }}
+
+{{- $prev := "" }}
+{{- range $i, $v := .Report.Vulnerabilities }}
+{{- if eq 0 $i }}
+{{- printf "\n"}}
+### Vulnerabilities
+| Library | Vulnerability | Fixed Version | Title |
+|---------|---------------|---------------|-------|
+{{- end }}
+{{- with $v }}
+{{- $new := ne .Resource $prev }}
+| {{ if $new }}{{ .Resource }}<br/>{{ .InstalledVersion }}{{ end -}}
+| {{ get $d .Severity }} {{ .VulnerabilityID -}}
+| {{ .FixedVersion -}}
+| {{ .Title -}}
+|
+{{- $prev = .Resource }}
+{{- end }}
+{{- end }}
